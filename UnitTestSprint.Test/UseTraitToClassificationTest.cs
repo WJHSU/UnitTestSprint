@@ -9,14 +9,17 @@ namespace UnitTestSprint.Test
 {
     /// <summary>
     /// UseTraitToClassificationTest
+    /// 以下四個方法，分別針對加法和減法，進行 return value 與 throw exception 的驗證
+    /// 請分類
+    /// 3q
     /// </summary>
     public class UseTraitToClassificationTest
     {
+
         /// <summary>
         /// 加法的測試
         /// </summary>
         [Fact]
-        [Trait("Add", "Positive")]
         public void Test_A_Add_B_Should_Be_C()
         {
             ////arrange
@@ -38,7 +41,6 @@ namespace UnitTestSprint.Test
         /// 加法的測試
         /// </summary>
         [Fact]
-        [Trait("Add", "Exception")]
         public void Test_A_Add_B_Should_Be_C1()
         {
             ////arrange
@@ -60,7 +62,6 @@ namespace UnitTestSprint.Test
         /// 減法的測試
         /// </summary>
         [Fact]
-        [Trait("Minus", "Positive")]
         public void Test_A_Minus_B_Should_Be_C()
         {
             ////arrange
@@ -81,7 +82,6 @@ namespace UnitTestSprint.Test
         /// 減法的測試
         /// </summary>
         [Fact]
-        [Trait("Minus", "Exception")]
         public void Test_A_Minus_B_Should_Be_C1()
         {
             ////arrange

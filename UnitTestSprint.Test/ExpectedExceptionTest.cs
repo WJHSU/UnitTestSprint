@@ -10,9 +10,7 @@ namespace UnitTestSprint.Test
     public class ExpectedExceptionTest
     {
         /// <summary>
-        /// Xunit 的 InlineData 要這樣用
-        /// Attribute的部分，請從 Fact 改為 Theory
-        /// 並且加上 InlineData Attribute
+        /// 驗證 Exception 是否符合預期
         /// </summary>
         /// <param name="parameter1">parameter1</param>
         /// <param name="parameter2">parameter2</param>
@@ -26,11 +24,9 @@ namespace UnitTestSprint.Test
             var parameter2 = 1;
             ////adding other parameter here
 
-            ////act
-            var ex = Assert.Throws<ApplicationException>(() => target.A_Add_B_Should_Be_C(parameter1, parameter2));
+            ////請用 Assert.Throws 驗證拋出之 Exception Type 是否符合預期
 
-            ////assert
-            Assert.Contains("GG", ex.Message);
+            ////請驗證拋出的訊息是否符合預期
         }
     }
 }

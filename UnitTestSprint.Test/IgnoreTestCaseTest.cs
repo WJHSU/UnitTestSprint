@@ -9,10 +9,12 @@ namespace UnitTestSprint.Test
 {
     public class IgnoreTestCaseTest
     {
-        [Fact(Skip = "我不爽寫Test_A_Add_B_Should_Be_C")]
+        /// <summary>
+        /// 請忽略這個測試方法
+        /// </summary>
         public void Test_A_Add_B_Should_Be_C()
         {
-            var TheMsg = "HahahahahHehehehHooo~";
+            var TheMsg = "HahahahahHehehehHooo~ERROR";
         }
     }
 }

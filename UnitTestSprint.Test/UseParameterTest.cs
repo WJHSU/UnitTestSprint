@@ -18,10 +18,6 @@ namespace UnitTestSprint.Test
         /// <param name="parameter1">parameter1</param>
         /// <param name="parameter2">parameter2</param>
         /// <param name="expected">expected</param>
-        [Theory]
-        [InlineData(1, 2, 3)]
-        [InlineData(2, 3, 5)]
-        [InlineData(3, 5, 8)]
         public void Test_A_Add_B_Should_Be_C_WithInlineData(int parameter1, int parameter2, int expected)
         {
             ////arrange
@@ -41,8 +37,6 @@ namespace UnitTestSprint.Test
         /// <param name="parameter1">parameter1</param>
         /// <param name="parameter2">parameter2</param>
         /// <param name="expected">expected</param>
-        [Theory]
-        [MemberData(nameof(HowAboutGiveUsSomeMemberData), parameters: 3)]
         public void Test_A_Add_B_Should_Be_C_WithmemberData1(int parameter1, int parameter2, int expected)
         {
             ////arrange
@@ -57,13 +51,11 @@ namespace UnitTestSprint.Test
 
         /// <summary>
         /// Xunit 的 MemberData 要這樣用
-        /// 在其他 Class 內建立回傳 MemberData 的靜態方法
+        /// 請在 UseParameterTests資料夾內建立新的Class，此 Class 包含一個回傳 IEnumerable<object[]> 的靜態方法
         /// </summary>
         /// <param name="parameter1">parameter1</param>
         /// <param name="parameter2">parameter2</param>
         /// <param name="expected">expected</param>
-        [Theory]
-        [MemberData(nameof(HowAboutGiveUsSomeMemberDataClass.OkIWillGiveYouSomeMemberData), MemberType = typeof(HowAboutGiveUsSomeMemberDataClass))]
         public void Test_A_Add_B_Should_Be_C_WithmemberData2(int parameter1, int parameter2, int expected)
         {
             ////arrange
@@ -78,13 +70,11 @@ namespace UnitTestSprint.Test
 
         /// <summary>
         /// Xunit 的 MemberData 要這樣用
-        /// 在其他 Class 內建立 MemberData property
+        /// 在剛剛的 Class 內建立一靜態屬性，並建立 get 存取子回傳一 object[] 的 list
         /// </summary>
         /// <param name="parameter1">parameter1</param>
         /// <param name="parameter2">parameter2</param>
         /// <param name="expected">expected</param>
-        [Theory]
-        [MemberData(nameof(HowAboutGiveUsSomeMemberDataClass.MemberDataProperty), MemberType = typeof(HowAboutGiveUsSomeMemberDataClass))]
         public void Test_A_Add_B_Should_Be_C_WithmemberData3(int parameter1, int parameter2, int expected)
         {
             ////arrange
@@ -105,8 +95,6 @@ namespace UnitTestSprint.Test
         /// <param name="parameter1">parameter1</param>
         /// <param name="parameter2">parameter2</param>
         /// <param name="expected">expected</param>
-        [Theory]
-        [ClassData(typeof(HowAboutGiveUseSomeClassData))]
         public void Test_A_Add_B_Should_Be_C_WithClassData(int parameter1, int parameter2, int expected)
         {
             ////arrange
@@ -126,19 +114,6 @@ namespace UnitTestSprint.Test
         /// For MemberData
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<object[]> HowAboutGiveUsSomeMemberData(int memberTaken)
-        {
-            var memberData = new List<object[]>
-            {
-                new object[] { 1, 2, 3 },
-                new object[] { 2, 3, 5 },
-                new object[] { 3, 5, 8 },
-                new object[] { 5, 8, 13 }
-            };
-
-            return memberData.Take(memberTaken);
-        }
-
         #endregion
     }
 }
