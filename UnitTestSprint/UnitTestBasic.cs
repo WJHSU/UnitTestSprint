@@ -16,7 +16,7 @@ namespace UnitTestSprint
     {
         /// <summary>
         /// 剛剛上面講到的加法
-        /// 怕你看不懂，我幫你加注音
+        /// 怕你看不懂，幫你加注音
         /// </summary>
         /// <param name="a">被(ㄅㄟˋ)加(ㄐㄧㄚ)數(ㄕㄨˋ)</param>
         /// <param name="b">加(ㄐㄧㄚ)數(ㄕㄨˋ)</param>

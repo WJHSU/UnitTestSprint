@@ -19,6 +19,11 @@ namespace UnitTestSprint
         /// <returns></returns>
         public int A_Add_B_Should_Be_C(int a, int b)
         {
+            if (a >= int.MaxValue || b >= int.MaxValue)
+            {
+                throw new ApplicationException("太大惹");
+            }
+
             return a + b;
         }
 
@@ -30,6 +35,11 @@ namespace UnitTestSprint
         /// <returns></returns>
         public int A_Minus_B_Should_Be_C(int a, int b)
         {
+            if (a <= int.MinValue)
+            {
+                throw new ApplicationException("太小惹");
+            }
+
             return a - b;
         }
     }

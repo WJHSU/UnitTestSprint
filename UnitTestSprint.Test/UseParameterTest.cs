@@ -99,6 +99,7 @@ namespace UnitTestSprint.Test
 
         /// <summary>
         /// Xunit 的 ClassData 要這樣用
+        /// 你所建立的Class必須要實作 Ienumerable 介面
         /// Create A Class Implement Ienumerable<objecet[]>
         /// </summary>
         /// <param name="parameter1">parameter1</param>
@@ -118,9 +119,10 @@ namespace UnitTestSprint.Test
             Assert.Equal(expected, actual);
         }
 
-        #region
+        #region:return memberdata
 
         /// <summary>
+        /// 請在此區塊建立一個回傳 Ienumerable<object[]>的方法
         /// For MemberData
         /// </summary>
         /// <returns></returns>

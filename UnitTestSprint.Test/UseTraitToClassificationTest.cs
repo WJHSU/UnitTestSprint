@@ -7,10 +7,16 @@ using Xunit;
 
 namespace UnitTestSprint.Test
 {
+    /// <summary>
+    /// UseTraitToClassificationTest
+    /// </summary>
     public class UseTraitToClassificationTest
     {
+        /// <summary>
+        /// 加法的測試
+        /// </summary>
         [Fact]
-        [Trait("UseTraitToClassificationTest", "Plus")]
+        [Trait("Add", "Positive")]
         public void Test_A_Add_B_Should_Be_C()
         {
             ////arrange
@@ -28,27 +34,33 @@ namespace UnitTestSprint.Test
             Assert.Equal(expected, actual);
         }
 
+        /// <summary>
+        /// 加法的測試
+        /// </summary>
         [Fact]
-        [Trait("UseTraitToClassificationTest2", "Plus")]
+        [Trait("Add", "Exception")]
         public void Test_A_Add_B_Should_Be_C1()
         {
             ////arrange
             var target = new UseTraitToClassification();
-            var parameter1 = 2;
+            var parameter1 = int.MaxValue;
             var parameter2 = 4;
 
             ////adding other parameter here
-            var expected = 6;
+            var expected = "太大惹";
 
             ////act
-            var actual = target.A_Add_B_Should_Be_C(parameter1, parameter2);
+            var ex = Assert.Throws<ApplicationException>(() => target.A_Add_B_Should_Be_C(parameter1, parameter2));
 
             ////assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, ex.Message);
         }
 
+        /// <summary>
+        /// 減法的測試
+        /// </summary>
         [Fact]
-        [Trait("UseTraitToClassificationTest", "Minus")]
+        [Trait("Minus", "Positive")]
         public void Test_A_Minus_B_Should_Be_C()
         {
             ////arrange
@@ -65,22 +77,25 @@ namespace UnitTestSprint.Test
             Assert.Equal(expected, actual);
         }
 
+        /// <summary>
+        /// 減法的測試
+        /// </summary>
         [Fact]
-        [Trait("UseTraitToClassificationTest2", "Minus")]
+        [Trait("Minus", "Exception")]
         public void Test_A_Minus_B_Should_Be_C1()
         {
             ////arrange
             var target = new UseTraitToClassification();
-            var parameter1 = 5;
+            var parameter1 = int.MinValue;
             var parameter2 = 3;
             ////adding other parameter here
-            var expected = 2;
+            var expected = "太小惹";
 
             ////act
-            var actual = target.A_Minus_B_Should_Be_C(parameter1, parameter2);
+            var ex = Assert.Throws<ApplicationException>(() => target.A_Minus_B_Should_Be_C(parameter1, parameter2));
 
             ////assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, ex.Message);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace UnitTestSprint
     public class UseParameter
     {
         /// <summary>
-        /// 和UniTestBasic一樣的方法
+        /// 和UnitTestBasic一樣的方法
         /// Ctrl + C -> Ctrl + V
         /// </summary>
         /// <param name="a">你覺得呢?</param>
